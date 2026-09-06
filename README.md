@@ -14,6 +14,10 @@ The agent reads the comments, publishes the next Version. No accounts, no email,
 
 [English](README.md) · [中文](README.zh-CN.md)
 
+<br>
+
+<a href="docs/media/promo.mp4"><img src="docs/media/promo.gif" width="880" alt="Publish, share, annotate, notify, iterate — a 27-second tour"></a>
+
 </div>
 
 ---
@@ -113,6 +117,8 @@ curl -fsS "$MYARTIFACTS_URL/skill.md" -o .claude/skills/myartifacts/SKILL.md
 
 ## What a Reader sees
 
+<img src="docs/media/reader.png" width="100%" alt="A Reader's view: the page inside the Shell, three pins on it, one card open">
+
 - The page, scaled to fit their screen at the **Canvas** width it was composed for. Phone, laptop,
   and publisher all look at identical geometry.
 - Their own name in the header — fixed by whoever made the link, so a forwarded link still speaks
@@ -173,6 +179,7 @@ skills/           the agent skill the server serves at /skill.md
 test/             252 tests against the HTTP seam — npm test
 docs/adr/         why it is shaped this way
 deploy/           one box, Caddy + systemd
+demo/promo/       the video above, a Remotion project — npx remotion render Promo
 ```
 
 ```bash

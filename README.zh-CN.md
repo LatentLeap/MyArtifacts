@@ -14,6 +14,10 @@ Agent 读到批注，发布下一个版本。没有账号，没有邮件，没�
 
 [English](README.md) · [中文](README.zh-CN.md)
 
+<br>
+
+<a href="docs/media/promo.mp4"><img src="docs/media/promo.gif" width="880" alt="发布、分享、批注、通知、迭代——27 秒走一遍"></a>
+
 </div>
 
 ---
@@ -107,6 +111,8 @@ curl -fsS "$MYARTIFACTS_URL/skill.md" -o .claude/skills/myartifacts/SKILL.md
 
 ## 收件人看到什么
 
+<img src="docs/media/reader.png" width="100%" alt="收件人视角：Shell 里的页面，三枚批注，一张卡片打开">
+
 - 页面按发布时声明的**画布**宽度等比缩放到他的屏幕。手机、笔记本、发布方看到的几何完全一致。
 - 头部显示他自己的名字——由建链接的人固定，转发出去的链接仍以原名发言。
 - 点任意位置 → 钉一条批注。在发布方标记已解决之前，批注可以自己撤回。
@@ -165,6 +171,7 @@ skills/           服务器在 /skill.md 提供的 agent skill
 test/             252 个打在 HTTP 边界上的测试 —— npm test
 docs/adr/         为什么长这样
 deploy/           一台机器，Caddy + systemd
+demo/promo/       上面那段视频，Remotion 项目 —— npx remotion render Promo
 ```
 
 ```bash
