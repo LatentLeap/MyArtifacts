@@ -1,0 +1,14 @@
+[Unit]
+Description=MyArtifacts
+After=network.target
+
+[Service]
+User=myartifacts
+WorkingDirectory=/opt/myartifacts
+EnvironmentFile=/etc/myartifacts.env
+ExecStart=/usr/local/bin/node src/server.ts
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

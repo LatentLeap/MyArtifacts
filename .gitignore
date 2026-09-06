@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.*
+data/
+.ndemo/
+demo/**/.data/
+demo/**/.frames/
+demo/**/video-raw/
+demo/**/audio/
+demo/**/*.mp4
+demo/**/*.srt
+
+# Local-only: working notes, third-party skill bundles, deploy identifiers
+.scratch/
+.agents/
+.claude/
+skills-lock.json
+deploy/deploy.local.env

@@ -1,0 +1,10 @@
+# One origin per Artifact (ADR-0007): wildcard cert via DNS-01 on Aliyun DNS.
+*.usercontent.latentleap.cc {
+	tls {
+		dns alidns {
+			access_key_id {env.ALICLOUD_ACCESS_KEY_ID}
+			access_key_secret {env.ALICLOUD_ACCESS_KEY_SECRET}
+		}
+	}
+	reverse_proxy 127.0.0.1:8788
+}

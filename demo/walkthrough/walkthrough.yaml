@@ -1,0 +1,295 @@
+titleCard:
+  title: "MyArtifacts"
+  subtitle: "发布页面，收集客户批注，再发下一版"
+  duration: 3000
+app:
+  url: "http://localhost:8827/login"
+  viewport:
+    width: 1280
+    height: 800
+  scale: 2
+  zoom: 1
+  colorScheme: "light"
+  setup:
+    - run: "demo/walkthrough/serve.sh"
+tts:
+  provider: "edge"
+  voice: "zh-CN-XiaoxiaoNeural"
+  speed: 1
+recording:
+  outputDir: "."
+  fps: 30
+segments:
+  - id: "intro"
+    narration: "这是 MyArtifacts。agent 把做好的页面发到我们自己的服务器上，客户在微信里点开链接，直接在页面上钉批注，我们改版再发。整套流程走一遍。"
+    intent: "login page on screen"
+    actions:
+      - type: "wait"
+        duration: 1500
+    timing: "after"
+    audioDuration: 14472
+    videoDuration: 15973
+  - id: "login"
+    narration: "发布方没有账号，只有一个 token。贴一次，浏览器就记住了。"
+    intent: "paste the token and enter"
+    actions:
+      - type: "type"
+        target:
+          placeholder: "贴上你的 token"
+        text: "hHN8jAdRjmwXlfJbouw93K6Ev7PGJhEAQsOO-PGU-eU"
+        delay: 15
+      - type: "click"
+        target:
+          role: "button"
+          name: "进入"
+        done:
+          url: "http://localhost:8827/"
+      - type: "wait"
+        duration: 1500
+    timing: "parallel"
+    audioDuration: 6024
+    videoDuration: 6024
+  - id: "gallery"
+    narration: "画廊是一张扁平的表：标题、最新版、开放的批注数、Reader 数，还有最近是谁发的。"
+    intent: "show the gallery"
+    actions:
+      - type: "wait"
+        duration: 2000
+    timing: "after"
+    audioDuration: 8184
+    videoDuration: 10188
+  - id: "artifact"
+    narration: "点开一个 Artifact：版本、批注、Reader 链接，三块叠放。每一次发布都是不可变的 Version，可以冻结在任何一版。"
+    intent: "open the 官网改版方案 artifact page"
+    actions:
+      - type: "click"
+        target:
+          role: "link"
+          name: "官网改版方案"
+        done:
+          url: "**/a/*"
+      - type: "wait"
+        duration: 2500
+    timing: "parallel"
+    audioDuration: 11040
+    videoDuration: 11041
+  - id: "reader-link"
+    narration: "给客户建一条署名的 Reader 链接。名字由我们定，链接本身就是凭证，转发失控了可以单独撤销。"
+    intent: "create a Reader link for 李工"
+    actions:
+      - type: "type"
+        target:
+          placeholder: "收件人的名字，建后不可改"
+        text: "李工"
+        delay: 120
+      - type: "click"
+        target:
+          role: "button"
+          name: "建链接"
+        done:
+          visible: "td.lk a"
+      - type: "wait"
+        duration: 2000
+    timing: "parallel"
+    audioDuration: 9432
+    videoDuration: 9433
+  - id: "open-reader"
+    narration: "李工点开链接看到的就是这个。页面按它声明的 Canvas 宽度等比缩放，手机和电脑看到同一套几何。页面本身跑在独立的 origin 里，没有任何网络；批注层是外面这个壳。"
+    intent: "follow the Reader link"
+    actions:
+      - type: "click"
+        target:
+          selector: "td.lk a"
+        done:
+          visible: "#cbtn:not([disabled])"
+          timeout: 15000
+      - type: "wait"
+        duration: 2500
+    timing: "parallel"
+    audioDuration: 16344
+    videoDuration: 16343
+  - id: "pin-1"
+    narration: "进入批注模式，点页面上任意一个元素，就把一条批注钉在了那个元素上。图钉锚在 DOM 元素，不是屏幕坐标，捏合缩放也不会跑。"
+    intent: "pin an annotation on the 目标 paragraph"
+    actions:
+      - type: "click"
+        target:
+          selector: "#cbtn"
+      - type: "wait"
+        duration: 800
+      - type: "click"
+        target:
+          selector: "body > p"
+          frame: "#f"
+        done:
+          visible: ".card textarea"
+      - type: "type"
+        target:
+          selector: ".card textarea"
+        text: "两栏之间留白太大，压缩一下"
+        delay: 90
+      - type: "click"
+        target:
+          selector: ".card [data-act=post]"
+        done:
+          visible: ".bub.open"
+      - type: "wait"
+        duration: 1500
+    timing: "parallel"
+    audioDuration: 12744
+    videoDuration: 12746
+  - id: "pin-2"
+    narration: "再在标题上钉一条。右下角是全部批注，最新的在前。"
+    intent: "pin a second annotation on the heading, open the drawer"
+    actions:
+      - type: "click"
+        target:
+          selector: "h1"
+          frame: "#f"
+        done:
+          visible: ".card textarea"
+      - type: "type"
+        target:
+          selector: ".card textarea"
+        text: "标题加上季度，比如 2026 Q4"
+        delay: 90
+      - type: "click"
+        target:
+          selector: ".card [data-act=post]"
+        done:
+          text:
+            selector: "#pill"
+            has: "全部批注 2"
+      - type: "press"
+        key: "Escape"
+      - type: "click"
+        target:
+          selector: "#pill"
+        done:
+          visible: "#drawer.open"
+      - type: "wait"
+        duration: 2500
+      - type: "click"
+        target:
+          selector: "#dclose"
+    timing: "parallel"
+    audioDuration: 5760
+    videoDuration: 7008
+  - id: "agent-publishes"
+    narration: "现在轮到 agent。它读到开放的批注，改好页面，把改动说明写在顶部，发布 v2，处理过的那条标为已处理。李工开着的页面会自己跳到新版。"
+    intent: "the agent publishes v2 through the API; the Reader's view follows"
+    actions:
+      - type: "wait"
+        duration: 4000
+      - type: "run"
+        text: "demo/walkthrough/publish-v2.sh"
+        done:
+          text:
+            selector: "header .v"
+            has: "v2"
+          timeout: 15000
+      - type: "wait"
+        duration: 3000
+    timing: "parallel"
+    audioDuration: 14256
+    videoDuration: 14256
+  - id: "after-publish"
+    narration: "标题上那条没改，图钉还在原处，仍然开放。留白那条改过了，段落内容变了，它变成“位置已失效”，标为已处理，进入记录，不会凭空消失。"
+    intent: "show the drawer on v2: surviving pin, detached addressed pin"
+    actions:
+      - type: "click"
+        target:
+          selector: "#pill"
+        done:
+          visible: "#drawer.open"
+      - type: "click"
+        target:
+          selector: "#dbody .tog"
+      - type: "wait"
+        duration: 3500
+      - type: "click"
+        target:
+          selector: "#dclose"
+    timing: "parallel"
+    audioDuration: 13536
+    videoDuration: 13537
+  - id: "publisher-view"
+    narration: "回到发布方这边，Artifact 页里能看到已处理的批注。打开 v2，是只读的 Reader 视图：图钉和抽屉都在，但发布方不能写批注，批注永远来自 Reader。"
+    intent: "artifact page addressed tab, then the version view"
+    actions:
+      - type: "navigate"
+        text: "http://localhost:8827/a/26f8b3605ed6d53a303bf47c4bc7f7c5?status=addressed"
+      - type: "wait"
+        duration: 2500
+      - type: "click"
+        target:
+          role: "link"
+          name: "v2"
+        done:
+          visible: ".bub"
+          timeout: 15000
+      - type: "wait"
+        duration: 2500
+    timing: "parallel"
+    audioDuration: 14016
+    videoDuration: 14017
+  - id: "poll"
+    narration: "交互页也能原样搬过来。这个投票页用的是 Claude Code Artifacts 的 claude.use db：选择先写进自己的私有子树，只有自己看得到；点公开才进入共享计数，别的 Reader 实时看到。"
+    intent: "vote and reveal on the db poll page"
+    actions:
+      - type: "navigate"
+        text: "http://localhost:8827/r/G0wiOgo1_6H_nuBPfE0sPhgL3Ke5IBWWofyRf-umMGg"
+      - type: "wait"
+        duration: 1500
+      - type: "click"
+        target:
+          role: "button"
+          name: "火锅"
+          frame: "#f"
+      - type: "wait"
+        duration: 1500
+      - type: "click"
+        target:
+          selector: "#reveal"
+          frame: "#f"
+      - type: "wait"
+        duration: 2500
+    timing: "parallel"
+    audioDuration: 16080
+    videoDuration: 16082
+  - id: "members"
+    narration: "成员页发 token。带 Client 的 token 只看得到自家的 Artifact，别家的连存在都猜不到。明文只出现这一次。"
+    intent: "mint a client-scoped token"
+    actions:
+      - type: "navigate"
+        text: "http://localhost:8827/members"
+      - type: "type"
+        target:
+          selector: "#mname"
+        text: "外包-小张"
+        delay: 100
+      - type: "type"
+        target:
+          selector: "#mclient"
+        text: "acme"
+        delay: 100
+      - type: "click"
+        target:
+          role: "button"
+          name: "发 token"
+        done:
+          visible: "#banner:not([hidden])"
+      - type: "wait"
+        duration: 2500
+    timing: "parallel"
+    audioDuration: 10632
+    videoDuration: 10634
+  - id: "outro"
+    narration: "一个进程，一个 SQLite，一个目录，备份就是 tar。这就是 MyArtifacts。"
+    intent: "close"
+    actions:
+      - type: "wait"
+        duration: 2000
+    timing: "after"
+    audioDuration: 7680
+    videoDuration: 9684

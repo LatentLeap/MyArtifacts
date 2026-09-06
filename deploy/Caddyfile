@@ -1,0 +1,7 @@
+# Shell: our origin. HTTP-01 certificate, nothing special.
+artifacts.latentleap.cc {
+	reverse_proxy 127.0.0.1:8787
+}
+
+# setup.sh drops usercontent.caddy here once the Aliyun DNS key is in /etc/myartifacts.env.
+import /etc/caddy/conf.d/*.caddy
