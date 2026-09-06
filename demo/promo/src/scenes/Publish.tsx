@@ -5,7 +5,7 @@ import { c, ease, font } from "../theme";
 const CMD = [
   'curl -fsS -H "Authorization: Bearer $MYARTIFACTS_TOKEN" \\',
   "     -H 'Content-Type: text/html' --data-binary @page.html \\",
-  '     -X POST "$MYARTIFACTS_URL/api/artifacts?canvas=720"',
+  '     -X POST "$MYARTIFACTS_URL/api/artifacts?canvas=1200"',
 ].join("\n");
 
 export const Publish: React.FC = () => {
@@ -34,7 +34,7 @@ export const Publish: React.FC = () => {
         <div style={{ opacity: shown, translate: `0 ${(1 - shown) * 14}px`, marginTop: 20 }}>
           <span style={{ color: c.green, fontWeight: 700 }}>201 Created</span>
           <span style={{ color: c.muted }}>{"  "}</span>
-          {'{"artifact":"26f8b360…","version":1,"canvas":720,"title":"官网改版方案"}'}
+          {'{"artifact":"90eb9d8c…","version":1,"canvas":1200,"title":"Kiln — Fall classes"}'}
         </div>
       </div>
     </AbsoluteFill>

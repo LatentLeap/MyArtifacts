@@ -17,12 +17,12 @@ export const Notify: React.FC = () => {
         <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: c.muted }}>
           <span style={{ width: 14, height: 14, borderRadius: 7, background: c.accent }} /> MyArtifacts <span style={{ marginLeft: "auto" }}>now</span>
         </div>
-        <div style={{ fontSize: 38, fontWeight: 600, marginTop: 14 }}>李工 pinned on 官网改版方案 · v1</div>
-        <div style={{ fontSize: 32, marginTop: 10, color: "#4a4844" }}>“两栏之间的留白还是太宽，手机上看像断开了”</div>
+        <div style={{ fontSize: 38, fontWeight: 600, marginTop: 14 }}>Maya Ortiz pinned on Kiln — Fall classes · v1</div>
+        <div style={{ fontSize: 32, marginTop: 10, color: "#4a4844" }}>“Can we say six weeks? The fall course got shorter.”</div>
         <div style={{ fontSize: 28, marginTop: 18, color: c.accent, fontWeight: 600 }}>Open the pin →</div>
       </div>
       <div style={{ position: "absolute", left: 1220, top: 560, display: "flex", flexDirection: "column", gap: 26, fontFamily: font.sans }}>
-        {["企业微信 WeCom", "飞书 Feishu", "Slack", "anything with a URL"].map((t, i) => {
+        {["WeCom", "Feishu", "Slack", "anything with a URL"].map((t, i) => {
           const s = ease(frame, 50 + i * 10, 72 + i * 10);
           return (
             <div key={t} style={{ opacity: s, translate: `${(1 - s) * 40}px 0`, fontSize: 34, fontWeight: 600, color: c.paper, padding: "14px 30px", borderRadius: 999, border: `2px solid ${i === 3 ? c.accent : c.line}`, background: "#181818", alignSelf: "flex-start" }}>

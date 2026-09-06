@@ -4,7 +4,7 @@ import { c, ease, font, pop } from "../theme";
 
 const Page: React.FC<{ x: number; label: string; fade: number; lines: number[] }> = ({ x, label, fade, lines }) => (
   <div style={{ position: "absolute", left: x, top: 520, width: 660, height: 440, borderRadius: 24, background: c.paper, opacity: fade, boxShadow: "0 40px 90px rgba(0,0,0,.6)", overflow: "hidden" }}>
-    <div style={{ background: c.ink, color: c.paper, fontFamily: font.sans, fontSize: 26, fontWeight: 600, padding: "14px 24px" }}>官网改版方案 <span style={{ color: c.muted, marginLeft: 10 }}>{label}</span></div>
+    <div style={{ background: c.ink, color: c.paper, fontFamily: font.sans, fontSize: 26, fontWeight: 600, padding: "14px 24px" }}>Kiln — Fall classes <span style={{ color: c.muted, marginLeft: 10 }}>{label}</span></div>
     <div style={{ padding: 30 }}>
       <div style={{ height: 34, width: 300, background: c.ink, borderRadius: 6, marginBottom: 26 }} />
       {lines.map((w, i) => <div key={i} style={{ height: 18, width: w, background: "#d9d6cf", borderRadius: 5, marginBottom: 16 }} />)}
@@ -14,7 +14,7 @@ const Page: React.FC<{ x: number; label: string; fade: number; lines: number[] }
 
 const Pin: React.FC<{ x: number; y: number; state?: "ok" | "lost" }> = ({ x, y, state }) => (
   <div style={{ position: "absolute", left: x, top: y, width: 60, height: 60, borderRadius: "50% 50% 50% 0", background: c.accent, border: "4px solid #fff", boxShadow: "0 8px 20px rgba(0,0,0,.35)", color: "#fff", fontFamily: font.sans, fontWeight: 700, fontSize: 26, display: "flex", alignItems: "center", justifyContent: "center" }}>
-    李
+    M
     {state ? (
       <span style={{ position: "absolute", left: 54, top: -6, whiteSpace: "nowrap", fontSize: 22, fontWeight: 600, padding: "4px 12px", borderRadius: 999, background: state === "ok" ? c.green : "#6b6863", color: state === "ok" ? "#0b3d1f" : "#fff" }}>
         {state === "ok" ? "✓ carried over" : "Detached"}

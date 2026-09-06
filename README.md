@@ -117,7 +117,7 @@ curl -fsS "$MYARTIFACTS_URL/skill.md" -o .claude/skills/myartifacts/SKILL.md
 
 ## What a Reader sees
 
-<img src="docs/media/reader.png" width="100%" alt="A Reader's view: the page inside the Shell, three pins on it, one card open">
+<img src="docs/media/reader.png" width="100%" alt="A Reader's view: a landing-page mockup inside the Shell, pinned and commented">
 
 - The page, scaled to fit their screen at the **Canvas** width it was composed for. Phone, laptop,
   and publisher all look at identical geometry.

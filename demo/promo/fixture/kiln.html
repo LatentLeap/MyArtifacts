@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kiln — Fall classes</title>
+<style>
+  :root{
+    --glaze:#1f4a3f;      /* celadon, deep */
+    --glaze-2:#2a5f50;
+    --slip:#efe9dc;       /* stoneware, unglazed */
+    --slip-2:#d9d0bd;
+    --cobalt:#2b4bd6;
+    --iron:#2a1a12;       /* tenmoku */
+    --display:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+    --body:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;width:1200px;background:var(--slip);color:var(--iron);font-family:var(--body);font-size:19px;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:34px 64px 0}
+  .mark{font-family:var(--display);font-size:30px;letter-spacing:.18em;font-weight:400}
+  .mark b{color:var(--cobalt);font-weight:400}
+  nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0;font-size:17px;letter-spacing:.02em}
+  nav .book{padding:10px 20px;border:1.5px solid var(--iron);border-radius:999px}
+  header{display:grid;grid-template-columns:1fr 480px;gap:48px;padding:80px 64px 64px;align-items:end}
+  .eyebrow{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--glaze);margin:0 0 22px}
+  h1{font-family:var(--display);font-weight:400;font-size:88px;line-height:.98;letter-spacing:-.015em;margin:0 0 28px;max-width:600px}
+  h1 em{font-style:italic;color:var(--glaze)}
+  .lede{font-size:22px;max-width:520px;margin:0 0 36px;color:#4a3a30}
+  .cta{display:inline-flex;align-items:center;gap:14px;background:var(--iron);color:var(--slip);padding:18px 28px;border-radius:999px;font-size:19px}
+  .cta span{opacity:.6}
+  figure{margin:0}
+  figcaption{font-size:14px;letter-spacing:.06em;color:#5b4b40;margin-top:12px;display:flex;justify-content:space-between}
+  section{padding:0 64px}
+  .glazes{background:var(--glaze);color:var(--slip);padding:56px 64px 64px;margin-top:24px}
+  .glazes h2, .classes h2, .schedule h2{font-family:var(--display);font-weight:400;font-size:40px;margin:0 0 8px}
+  .glazes p{margin:0 0 36px;opacity:.75;max-width:640px}
+  .swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+  .sw{text-align:center;font-size:16px;letter-spacing:.04em}
+  .sw i{display:block;width:150px;height:150px;border-radius:50%;margin:0 auto 14px;box-shadow:inset 0 -14px 30px rgba(0,0,0,.35),0 10px 24px rgba(0,0,0,.25)}
+  .classes{padding:72px 64px 24px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+  .card{background:#fff;border:1px solid var(--slip-2);border-radius:20px;padding:28px 28px 24px;display:flex;flex-direction:column;min-height:280px}
+  .card h3{font-family:var(--display);font-weight:400;font-size:30px;margin:0 0 6px}
+  .card .when{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--glaze);margin-bottom:16px}
+  .card p{margin:0 0 auto;color:#4a3a30;font-size:18px}
+  .card .price{font-family:var(--display);font-size:34px;margin-top:24px;display:flex;justify-content:space-between;align-items:baseline}
+  .card .price small{font-family:var(--body);font-size:15px;color:#7a6a5f}
+  .schedule{padding:56px 64px 80px}
+  table{width:100%;border-collapse:collapse;margin-top:24px;font-size:19px}
+  td,th{text-align:left;padding:16px 0;border-top:1px solid var(--slip-2)}
+  th{font-weight:500;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:#7a6a5f;border-top:0;padding-top:0}
+  td:first-child{font-family:var(--display);font-size:24px;width:220px}
+  footer{display:flex;justify-content:space-between;padding:28px 64px 40px;border-top:1px solid var(--slip-2);font-size:15px;color:#7a6a5f}
+</style>
+</head>
+<body>
+<nav>
+  <a class="mark" href="#">KI<b>L</b>N</a>
+  <ul><li>Classes</li><li>Studio</li><li>Shop</li><li><a class="book" href="#">Book a wheel</a></li></ul>
+</nav>
+
+<header>
+  <div>
+    <p class="eyebrow">Fall session · Fremont</p>
+    <h1 id="hero-title">Eight weeks at <em>the wheel.</em></h1>
+    <p class="lede">Beginner courses, open studio hours, and a kiln that fires every Thursday. No experience needed, aprons provided.</p>
+    <a class="cta" href="#">Book a first class <span>$45</span></a>
+  </div>
+  <figure id="firing-curve">
+    <svg viewBox="0 0 480 300" width="480" height="300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Helvetica,Arial,sans-serif">
+      <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2b4bd6" stop-opacity=".22"/><stop offset="1" stop-color="#2b4bd6" stop-opacity="0"/></linearGradient></defs>
+      <g stroke="#d9d0bd" stroke-width="1">
+        <line x1="40" y1="250" x2="470" y2="250"/><line x1="40" y1="190" x2="470" y2="190"/><line x1="40" y1="130" x2="470" y2="130"/><line x1="40" y1="70" x2="470" y2="70"/>
+      </g>
+      <g font-size="12" fill="#7a6a5f">
+        <text x="0" y="254">20°</text><text x="0" y="194">400°</text><text x="0" y="134">800°</text><text x="0" y="74">1200°</text>
+        <text x="40" y="280">0h</text><text x="180" y="280">4h</text><text x="320" y="280">8h</text><text x="450" y="280">12h</text>
+      </g>
+      <path d="M40 250 C 90 240, 120 210, 160 150 S 250 60, 300 40 L 330 40 C 360 60, 400 150, 470 246" fill="url(#g)" stroke="none"/>
+      <path d="M40 250 C 90 240, 120 210, 160 150 S 250 60, 300 40 L 330 40 C 360 60, 400 150, 470 246" fill="none" stroke="#2b4bd6" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="160" cy="150" r="5" fill="#efe9dc" stroke="#2b4bd6" stroke-width="3"/>
+      <text x="172" y="146" font-size="12" fill="#2a1a12">cone 06 · bisque</text>
+      <circle cx="315" cy="40" r="5" fill="#efe9dc" stroke="#2b4bd6" stroke-width="3"/>
+      <text x="200" y="26" font-size="12" fill="#2a1a12">cone 6 · 1222° · 15 min hold</text>
+    </svg>
+    <figcaption><span>Thursday glaze firing</span><span>temperature over time</span></figcaption>
+  </figure>
+</header>
+
+<section class="glazes">
+  <h2>Six house glazes</h2>
+  <p>Mixed in the studio, tested on every clay body we stock. Pick one at the glaze table, we handle the firing.</p>
+  <div class="swatches">
+    <div class="sw" id="glaze-celadon"><i style="background:radial-gradient(circle at 35% 30%,#b9d8c8,#6f9e8b 60%,#3f6f5f)"></i>Celadon</div>
+    <div class="sw" id="glaze-tenmoku"><i style="background:radial-gradient(circle at 35% 30%,#7a4a2a,#3a2214 55%,#1a0e08)"></i>Tenmoku</div>
+    <div class="sw" id="glaze-shino"><i style="background:radial-gradient(circle at 35% 30%,#fff3e0,#e8b98a 55%,#b86a3a)"></i>Shino</div>
+    <div class="sw" id="glaze-cobalt"><i style="background:radial-gradient(circle at 35% 30%,#9fb4ff,#2b4bd6 55%,#0f1f6e)"></i>Cobalt</div>
+    <div class="sw" id="glaze-ash"><i style="background:radial-gradient(circle at 35% 30%,#e6e3d6,#9a9d8a 55%,#5a5f4c)"></i>Ash</div>
+    <div class="sw" id="glaze-oatmeal"><i style="background:radial-gradient(circle at 35% 30%,#fbf6ea,#d9cbb0 55%,#9c8a6c)"></i>Oatmeal</div>
+  </div>
+</section>
+
+<section class="classes">
+  <h2>Classes this fall</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Wheel I</h3><div class="when">Tuesdays · 6:30–9 pm · 8 weeks</div>
+      <p>Centering, pulling walls, trimming. You leave with six finished pieces and the itch to come back.</p>
+      <div class="price" id="price-wheel"><span>$290</span><small>clay + firing included</small></div>
+    </div>
+    <div class="card">
+      <h3>Handbuilding</h3><div class="when">Saturdays · 10 am–1 pm · 6 weeks</div>
+      <p>Pinch, coil, slab. Mugs, planters and a lidded box, no wheel involved.</p>
+      <div class="price" id="price-hand"><span>$240</span><small>clay + firing included</small></div>
+    </div>
+    <div class="card">
+      <h3>Open studio</h3><div class="when">Any day · 9 am–10 pm · monthly</div>
+      <p>A shelf, a wheel when you want one, and every firing we run. For people who already center.</p>
+      <div class="price" id="price-open"><span>$120</span><small>per month, clay extra</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule">
+  <h2>Kiln schedule</h2>
+  <table>
+    <tr><th>Firing</th><th>Loads</th><th>Ready</th></tr>
+    <tr><td>Bisque</td><td>Tuesday evening</td><td>Thursday morning</td></tr>
+    <tr><td>Glaze</td><td>Thursday evening</td><td>Saturday morning</td></tr>
+    <tr><td>Raku</td><td>First Sunday, weather permitting</td><td>Same afternoon</td></tr>
+  </table>
+</section>
+
+<footer><span>Kiln · 4214 Fremont Ave N</span><span>Mockup v1 · for review</span></footer>
+</body>
+</html>

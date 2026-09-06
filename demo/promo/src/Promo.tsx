@@ -10,7 +10,7 @@ import { Publish } from "./scenes/Publish";
 export const SCENES = [
   ["Hook", Hook, 110],
   ["Publish", Publish, 150],
-  ["Annotate", Annotate, 200],
+  ["Annotate", Annotate, 220],
   ["Notify", Notify, 130],
   ["Iterate", Iterate, 165],
   ["Outro", Outro, 120],

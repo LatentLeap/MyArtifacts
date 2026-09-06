@@ -111,7 +111,7 @@ curl -fsS "$MYARTIFACTS_URL/skill.md" -o .claude/skills/myartifacts/SKILL.md
 
 ## 收件人看到什么
 
-<img src="docs/media/reader.png" width="100%" alt="收件人视角：Shell 里的页面，三枚批注，一张卡片打开">
+<img src="docs/media/reader.png" width="100%" alt="收件人视角：Shell 里的落地页设计稿，钉着批注，一张卡片打开">
 
 - 页面按发布时声明的**画布**宽度等比缩放到他的屏幕。手机、笔记本、发布方看到的几何完全一致。
 - 头部显示他自己的名字——由建链接的人固定，转发出去的链接仍以原名发言。
