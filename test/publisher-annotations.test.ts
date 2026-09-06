@@ -250,15 +250,18 @@ describe('the webhook', () => {
 
   test('the row is already listed when the POST lands', async () => {
     const url = await link(await publish());
-    let listedWhenItLanded: string[] = [];
-    answer = async (res) => {
-      listedWhenItLanded = (await readerList(url)).map((a) => a.annotation);
-      ok(res);
-    };
+    // Resolved by the receiver itself once it has looked: `delivered()` returns on the hit,
+    // which on a slow runner is before the receiver's own GET has come back.
+    const listedWhenItLanded = new Promise<string[]>((resolve) => {
+      answer = async (res) => {
+        resolve((await readerList(url)).map((a) => a.annotation));
+        ok(res);
+      };
+    });
     const a = await pinned(url);
 
     await delivered();
-    assert.deepEqual(listedWhenItLanded, [a.annotation], 'stored before it was announced');
+    assert.deepEqual(await listedWhenItLanded, [a.annotation], 'stored before it was announced');
   });
 
   test('a receiver that never answers does not hold up the Reader', async () => {
